@@ -1,382 +1,121 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<title>Happy Birthday Rii ❤️</title>
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<html class="gr__localhost"><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <title>Happy Birthday</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    
+<link rel="stylesheet" href="Happy%20Birthday_files/bootstrap.css"><link rel="stylesheet" href="Happy%20Birthday_files/style.css"></head>
 
-<style>
-:root{
-  --bg: linear-gradient(135deg,#f7f2ff,#efe7ff);
-  --purple:#a78bfa;
-  --glass:rgba(255,255,255,.75);
-  --text:#3b2f5c;
-}
+<body data-gr-c-s-loaded="true">
+    <div>
+        <div class="container">
+            <div>
+                <div class="row">
+                    <div class="loader" style="display: none;">
+                        <button id="play">Start</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <audio class="song" controls="controls" loop="">
+        <source src="Happy%20Birthday_files/music.mp3">
+        
+        Your browser isn't invited for super fun audio time.
+    </audio>
 
-*{margin:0;padding:0;box-sizing:border-box;font-family:Inter,system-ui}
+    <canvas id="confetti" width="438" height="726"></canvas>
+    <div class="container pt-5">
+        <div class="row">
+            <div class="col-12 col-xl-6 mx-auto">
+                <img src="Happy%20Birthday_files/banner.png" alt="">
+            </div>
+            <div class="col-12  text-center">
+                <div id="name" class="area">fdsafgfdsfsfdsgfg</div>
+            </div>
 
-body{
-  background:var(--bg);
-  height:100vh;
-  overflow:hidden;
-  color:var(--text);
-}
+            <div class="col-12 text-center">
+                <div class="type-wrap">
+                    <div id="typed-strings" class="typing" style="display: none;">
+                        <h2>Happy Birthday <i id="nae">fdsafgfdsfsfdsgfg</i></h2>
+                        <h2>Have a wonderful day</h2>
+                        <h2>Filled with joy and happiness.</h2>
+                    </div>
+                    <span id="typed" style="white-space:pre;">Happy Birthday <i id="nae">fdsafgfdsfsfdsgf</i></span><span class="typed-cursor">|</span>
+                </div>
+            </div>
 
-.center{
-  height:100vh;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  padding:20px;
-}
+            <div class="col-12 col-xl-6 mx-auto">
+                <img src="Happy%20Birthday_files/cake.svg" alt="">
+            </div>
+        </div>
 
-.card{
-  width:100%;
-  max-width:580px;
-  background:var(--glass);
-  backdrop-filter:blur(20px);
-  border-radius:30px;
-  padding:40px;
-  text-align:center;
-  box-shadow:0 30px 60px rgba(167,139,250,.3);
-  animation:fadeUp 1s ease;
-}
+    </div>
+    <img src="Happy%20Birthday_files/Balloon-Border.png" class="balloon-border" style="top: -500px;" width="100%">
 
-@keyframes fadeUp{
-  from{opacity:0;transform:translateY(40px)}
-  to{opacity:1}
-}
 
-h1{font-size:2.3rem;margin-bottom:15px}
-p{font-size:1.05rem;line-height:1.7}
-
-.btn{
-  margin-top:30px;
-  padding:14px 36px;
-  border:none;
-  border-radius:999px;
-  background:linear-gradient(135deg,#a78bfa,#c4b5fd);
-  color:#fff;
-  cursor:pointer;
-}
-
-.section{display:none}
-.section.active{display:block}
-
-/* ===== YUMMY CAKE ===== */
-.cake-wrapper{
-  position:relative;
-  margin:30px auto;
-  width:260px;
-}
-
-.plate{
-  width:260px;
-  height:20px;
-  background:#e5e7eb;
-  border-radius:50%;
-  margin-top:10px;
-}
-
-.cake{
-  width:240px;
-  height:140px;
-  margin:0 auto;
-  position:relative;
-  overflow:hidden;
-  border-radius:0 0 25px 25px;
-  box-shadow:0 15px 30px rgba(0,0,0,.15);
-  animation:wiggle 0.5s ease;
-}
-
-@keyframes wiggle{
-  0%{transform:rotate(0)}
-  25%{transform:rotate(1deg)}
-  50%{transform:rotate(-1deg)}
-  100%{transform:rotate(0)}
-}
-
-/* Layers */
-.cake::before{
-  content:"";
-  position:absolute;
-  bottom:0;
-  width:100%;
-  height:100%;
-  background:
-    linear-gradient(
-      to top,
-      #e9d5ff 0%,
-      #e9d5ff 33%,
-      #f5f3ff 33%,
-      #f5f3ff 66%,
-      #ede9fe 66%
-    );
-}
-
-/* Frosting */
-.frosting{
-  width:240px;
-  height:40px;
-  background:#faf5ff;
-  position:absolute;
-  top:-20px;
-  left:0;
-  border-radius:25px;
-}
-
-/* Drips */
-.drip{
-  position:absolute;
-  width:20px;
-  height:30px;
-  background:#faf5ff;
-  border-radius:0 0 10px 10px;
-  top:20px;
-}
-.d1{left:30px}
-.d2{left:80px;height:25px}
-.d3{left:140px;height:35px}
-.d4{left:190px;height:22px}
-
-/* Candles */
-.candle{
-  width:12px;
-  height:45px;
-  background:linear-gradient(#a78bfa,#c4b5fd);
-  position:absolute;
-  top:-60px;
-  border-radius:6px;
-  cursor:pointer;
-}
-.candle::after{
-  content:"🔥";
-  position:absolute;
-  top:-22px;
-  left:-6px;
-  font-size:18px;
-  animation:flicker .8s infinite;
-}
-@keyframes flicker{
-  0%,100%{transform:scale(1)}
-  50%{transform:scale(1.2)}
-}
-.smoke{
-  position:absolute;
-  top:-40px;
-  left:-5px;
-  font-size:18px;
-  animation:smoke 1.5s forwards;
-}
-@keyframes smoke{
-  to{transform:translateY(-40px);opacity:0}
-}
-.c1{left:70px}
-.c2{left:114px}
-.c3{left:158px}
-.blown{
-  opacity:0;
-  pointer-events:none;
-}
-
-/* Confetti */
-.confetti span{
-  position:absolute;
-  width:8px;
-  height:8px;
-  background:var(--purple);
-  animation:confetti 1s forwards;
-}
-@keyframes confetti{
-  to{transform:translateY(80px) rotate(360deg);opacity:0}
-}
-
-/* Flowers */
-.flowers{font-size:1.8rem}
-
-/* Fireworks */
-.fireworks span{
-  position:absolute;
-  width:6px;
-  height:6px;
-  background:var(--purple);
-  border-radius:50%;
-  animation:explode 1.5s infinite;
-}
-@keyframes explode{
-  from{transform:scale(0);opacity:1}
-  to{transform:scale(6);opacity:0}
-}
-
-/* Photos */
-.photos{
-  display:flex;
-  gap:12px;
-  justify-content:center;
-  margin-top:15px;
-}
-.photos img{
-  width:120px;
-  height:160px;
-  object-fit:cover;
-  border-radius:16px;
-  animation:movie 6s infinite alternate;
-}
-@keyframes movie{
-  from{transform:translateX(-10px)}
-  to{transform:translateX(10px)}
-}
-
-/* Envelope */
-.envelope{
-  width:200px;
-  height:120px;
-  background:#fff;
-  margin:30px auto;
-  border-radius:10px;
-  cursor:pointer;
-  position:relative;
-}
-.envelope::before{
-  content:"✉️";
-  font-size:3rem;
-  position:absolute;
-  top:35px;
-  left:75px;
-}
-</style>
-</head>
-
-<body>
-<div class="center">
-<div class="card">
-
-<!-- INTRO -->
-<div class="section active" id="s1">
-<h1>Rii ❤️</h1>
-<p>
-Some people don’t just enter your life —  
-they quietly become the reason your world feels warmer.
-</p>
-<button class="btn" onclick="go(1)">Continue</button>
-</div>
-
-<!-- CAKE -->
-<div class="section" id="s2">
-<h1>Make a Wish 🎂</h1>
-<p>Blow the candles… one by one ✨</p>
-
-<div class="cake-wrapper">
-  <div class="cake" id="cake">
-    <div class="frosting"></div>
-    <div class="drip d1"></div>
-    <div class="drip d2"></div>
-    <div class="drip d3"></div>
-    <div class="drip d4"></div>
-
-    <div class="candle c1" onclick="blow(this,1)"></div>
-    <div class="candle c2" onclick="blow(this,2)"></div>
-    <div class="candle c3" onclick="blow(this,3)"></div>
-  </div>
-  <div class="plate"></div>
-</div>
-</div>
-
-<!-- FLOWERS -->
-<div class="section" id="s3">
-<h1>For You 🌸</h1>
-<div class="flowers">
-🤍 White Lilies 🤍<br>
-💜 Purple Orchids 💜<br><br>
-From a handsome guy to a gorgeous girl 😉
-</div>
-<button class="btn" onclick="back()">Back to Cake</button>
-</div>
-
-<!-- MOVIE -->
-<div class="section" id="s4">
-<h1>Our Little Movie 🎬</h1>
-
-<div style="position:relative;height:120px">
-<span class="fireworks"><span></span><span></span><span></span></span>
-</div>
-
-<div class="photos">
-<img src="photo1.jpg">
-<img src="photo2.jpg">
-</div>
-
-<audio controls autoplay>
-<source src="finding-her.mp3" type="audio/mpeg">
-</audio>
-
-<button class="btn" onclick="back()">Back to Cake</button>
-</div>
-
-<!-- ENVELOPE -->
-<div class="section" id="s5">
-<h1>One Last Thing 💌</h1>
-<div class="envelope" onclick="go(5)"></div>
-<p>Click the letter</p>
-</div>
-
-<!-- LETTER -->
-<div class="section" id="s6">
-<h1>Rii ❤️</h1>
-<p style="text-align:left">
-Thank you so much for coming into my life and making every moment worth living.  
-Everyone — including me — is so incredibly proud of you.
-
-<br><br>
-I wish you the most beautiful life ahead…  
-though I already know it will be amazing — especially since I get to be part of it.
-
-<br><br>
-I never imagined I would meet someone so caring, so multitalented, and so genuinely special.  
-You’re the kind of person everyone wishes they had —  
-and lucky me, I get to proudly say you’re my girl.
-
-<br><br>
-Happy Birthday ❤️
-</p>
-</div>
-
-</div>
-</div>
-
+<!-- Code injected by live-server -->
+<script type="text/javascript">
+	// <![CDATA[  <-- For SVG support
+	if ('WebSocket' in window) {
+		(function () {
+			function refreshCSS() {
+				var sheets = [].slice.call(document.getElementsByTagName("link"));
+				var head = document.getElementsByTagName("head")[0];
+				for (var i = 0; i < sheets.length; ++i) {
+					var elem = sheets[i];
+					var parent = elem.parentElement || head;
+					parent.removeChild(elem);
+					var rel = elem.rel;
+					if (elem.href && typeof rel != "string" || rel.length == 0 || rel.toLowerCase() == "stylesheet") {
+						var url = elem.href.replace(/(&|\?)_cacheOverride=\d+/, '');
+						elem.href = url + (url.indexOf('?') >= 0 ? '&' : '?') + '_cacheOverride=' + (new Date().valueOf());
+					}
+					parent.appendChild(elem);
+				}
+			}
+			var protocol = window.location.protocol === 'http:' ? 'ws://' : 'wss://';
+			var address = protocol + window.location.host + window.location.pathname + '/ws';
+			var socket = new WebSocket(address);
+			socket.onmessage = function (msg) {
+				if (msg.data == 'reload') window.location.reload();
+				else if (msg.data == 'refreshcss') refreshCSS();
+			};
+			if (sessionStorage && !sessionStorage.getItem('IsThisFirstTime_Log_From_LiveServer')) {
+				console.log('Live reload enabled.');
+				sessionStorage.setItem('IsThisFirstTime_Log_From_LiveServer', true);
+			}
+		})();
+	}
+	else {
+		console.error('Upgrade your browser. This Browser is NOT supported WebSocket for Live-Reloading.');
+	}
+	// ]]>
+</script>
+<script src="Happy%20Birthday_files/snowflakes.js"></script>
+<script src="Happy%20Birthday_files/jquery.js"></script>
+<script src="Happy%20Birthday_files/typed.js"></script>
+<script src="Happy%20Birthday_files/script.js"></script><style type="text/css" data-typed-js-css="true">
+        .typed-cursor{
+          opacity: 1;
+        }
+        .typed-cursor.typed-cursor--blink{
+          animation: typedjsBlink 0.7s infinite;
+          -webkit-animation: typedjsBlink 0.7s infinite;
+                  animation: typedjsBlink 0.7s infinite;
+        }
+        @keyframes typedjsBlink{
+          50% { opacity: 0.0; }
+        }
+        @-webkit-keyframes typedjsBlink{
+          0% { opacity: 1; }
+          50% { opacity: 0.0; }
+          100% { opacity: 1; }
+        }
+      </style>
 <script>
-let stage=0;
 
-function go(n){
-document.querySelector(".section.active").classList.remove("active");
-document.getElementById("s"+(n+1)).classList.add("active");
-}
-
-function back(){
-document.querySelector(".section.active").classList.remove("active");
-document.getElementById("s2").classList.add("active");
-}
-
-function blow(el,n){
-el.classList.add("blown");
-let smoke=document.createElement("div");
-smoke.className="smoke";
-smoke.innerText="💨";
-el.appendChild(smoke);
-
-let conf=document.createElement("div");
-conf.className="confetti";
-for(let i=0;i<10;i++){
-let s=document.createElement("span");
-s.style.left=Math.random()*200+"px";
-conf.appendChild(s);
-}
-document.getElementById("cake").appendChild(conf);
-
-stage++;
-setTimeout(()=>go(stage+1),900);
-}
 </script>
 
-</body>
-</html>
+</body><span class="gr__tooltip"><span class="gr__tooltip-content"></span><i class="gr__tooltip-logo"></i><span class="gr__triangle"></span></span></html>
